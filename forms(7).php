@@ -48,32 +48,25 @@
 <body>
 
 <div class="container">
-    <h2>Formulário de Contato</h2>
-    <form action="#" method="post">
-        
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-
-        <label for="assunto">Assunto:</label>
-        <select id="assunto" name="assunto">
-            <option value="duvida">Dúvida</option>
-            <option value="sugestao">Sugestão</option>
-            <option value="suporte">Suporte</option>
-        </select>
-
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
-
-        <button type="submit">Enviar</button>
-
-    </form>
+   <h2>Tabuada</h2>
+<form method="post">
+    <label>Número:</label>
+    <input type="number" name="numero" required>
+    <button type="submit">Calcular</button>
+	
+</form>
 </div>
 
 </body>
 </html>
 
 <?php
+if (isset($_POST['numero'])) {
+    $numero = $_POST['numero'];
+
+    for ($i = 1; $i <= 10; $i++) {
+        echo "$numero x $i = " . ($numero * $i) . "<br>";
+    }
+}
 ?>

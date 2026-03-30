@@ -48,32 +48,35 @@
 <body>
 
 <div class="container">
-    <h2>Formulário de Contato</h2>
-    <form action="#" method="post">
-        
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+   <h2>Login</h2>
+<form method="post">
+    <label>Usuário:</label>
+    <input type="text" name="usuario" required>
 
-        <label for="assunto">Assunto:</label>
-        <select id="assunto" name="assunto">
-            <option value="duvida">Dúvida</option>
-            <option value="sugestao">Sugestão</option>
-            <option value="suporte">Suporte</option>
-        </select>
+    <label>Senha:</label>
+    <input type="password" name="senha" required>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+    <button type="submit">Entrar</button>
+</form>
 
-        <button type="submit">Enviar</button>
-
-    </form>
 </div>
 
 </body>
 </html>
 
 <?php
+if (isset($_POST['usuario']) && isset($_POST['senha'])) {
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
+
+    $usuario_correto = "admin";
+    $senha_correta = "1234";
+
+    if ($usuario == $usuario_correto && $senha == $senha_correta) {
+        echo "Login realizado com sucesso!";
+    } else {
+        echo "Usuário ou senha incorretos!";
+    }
+}
 ?>

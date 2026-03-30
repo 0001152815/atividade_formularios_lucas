@@ -48,32 +48,27 @@
 <body>
 
 <div class="container">
-    <h2>Formulário de Contato</h2>
-    <form action="#" method="post">
-        
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+   <h2>Verificador de Idade</h2>
+<form method="get">
+    <label>Idade:</label>
+    <input type="number" name="idade" required>
+    <button type="submit">Verificar</button>
+</form>
 
-        <label for="assunto">Assunto:</label>
-        <select id="assunto" name="assunto">
-            <option value="duvida">Dúvida</option>
-            <option value="sugestao">Sugestão</option>
-            <option value="suporte">Suporte</option>
-        </select>
-
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
-
-        <button type="submit">Enviar</button>
-
-    </form>
 </div>
 
 </body>
 </html>
 
 <?php
+if (isset($_GET['idade'])) {
+    $idade = $_GET['idade'];
+
+    if ($idade >= 18) {
+        echo "Maior de idade";
+    } else {
+        echo "Menor de idade";
+    }
+}
 ?>

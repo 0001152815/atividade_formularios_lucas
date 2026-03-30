@@ -48,32 +48,40 @@
 <body>
 
 <div class="container">
-    <h2>Formulário de Contato</h2>
-    <form action="#" method="post">
-        
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+    <h2>Média de Notas</h2>
+<form method="post">
+    <label>Nota 1:</label>
+    <input type="number" step="0.1" name="nota1" required>
 
-        <label for="assunto">Assunto:</label>
-        <select id="assunto" name="assunto">
-            <option value="duvida">Dúvida</option>
-            <option value="sugestao">Sugestão</option>
-            <option value="suporte">Suporte</option>
-        </select>
+    <label>Nota 2:</label>
+    <input type="number" step="0.1" name="nota2" required>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+    <label>Nota 3:</label>
+    <input type="number" step="0.1" name="nota3" required>
 
-        <button type="submit">Enviar</button>
+    <button type="submit">Calcular Média</button>
+</form>
 
-    </form>
 </div>
 
 </body>
 </html>
 
 <?php
+if (isset($_POST['nota1']) && isset($_POST['nota2']) && isset($_POST['nota3'])) {
+    $n1 = $_POST['nota1'];
+    $n2 = $_POST['nota2'];
+    $n3 = $_POST['nota3'];
+
+    $media = ($n1 + $n2 + $n3) / 3;
+
+    echo "Média: $media <br>";
+
+    if ($media >= 7) {
+        echo "Aprovado";
+    } else {
+        echo "Reprovado";
+    }
+}
 ?>
